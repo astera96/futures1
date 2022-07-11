@@ -1,8 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:http/http.dart' as http;
 
 class FuturesScreenView extends StatelessWidget {
   const FuturesScreenView({Key? key}) : super(key: key);
@@ -41,7 +42,7 @@ class FuturesScreenView extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                child: FutureBuilder(
+                child: FutureBuilder<List<Map<String, dynamic>>>(
                   future: fetchPostForApp(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
